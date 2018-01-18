@@ -3,7 +3,7 @@ Team: 溫妮孝周的老公
   
 Scripts:  
     2 of all:  
-    - model.py: Dual LSTM based retrieval model implementation  
+- model.py: Dual LSTM based retrieval model implementation  
     - reproduce.py: Kaggle reproduce implementation  
   
 Requirements:  
