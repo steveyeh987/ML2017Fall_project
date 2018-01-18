@@ -1,12 +1,12 @@
 # Machine Learning Final Project: Listen and Translate  
-# Team: 溫妮孝周的老公  
+### Team: 溫妮孝周的老公  
   
-#**Scripts:**  
+# Scripts:  
 - 2 of all:  
   - model.py: Dual LSTM based retrieval model implementation  
   - reproduce.py: Kaggle reproduce implementation  
   
-#**Requirements:**  
+# Requirements:  
 - Python 3  
 - gensim  
 - keras  
@@ -15,7 +15,7 @@
 - pandas  
 - numpy  
   
-#**Files:**  
+# Files:  
 > All required files should be named as follows and be in the same folder as scripts:  
 - train.data  
 - train.caption  
@@ -23,7 +23,7 @@
 - test.csv  
 - model.h5  
   
-#**Descriptions of scripts:**  
+# Descriptions of scripts:  
 - model.py:  
   - Execution:  
   ```
