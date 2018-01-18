@@ -1,5 +1,5 @@
 Machine Learning Final Project: Listen and Translate
-Team: 溫妮孝周的老公
+> Team: 溫妮孝周的老公
 
 Scripts:
     2 of all:
