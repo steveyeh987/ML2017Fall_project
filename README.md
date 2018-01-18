@@ -26,8 +26,8 @@
 #**Descriptions of scripts:**  
 - model.py:  
   - Execution:  
-  ```python
-  > python3 model.py train.data test.data train.caption test.csv predict_path  
+  ```
+  python3 model.py train.data test.data train.caption test.csv predict_path  
   ```
   - Output:  
   > Generate a keras model file (model.h5) and write the prediction to the file (predict_path.csv) at the end.  
