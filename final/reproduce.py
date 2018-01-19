@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
 from keras import backend as K
-import tensorflow as tf
-config = tf.ConfigProto()
-#config.gpu_options.per_process_gpu_memory_fraction = 0.6
-config.gpu_options.allow_growth=True
-sess = tf.Session(config=config)
-K.set_session(sess)
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 from sklearn.metrics import accuracy_score
@@ -36,13 +29,22 @@ import pandas as pd
 import numpy as np
 import pickle
 import random
+import sys
 import io
 import re
 
+train_data = sys.argv[1]
+test_data = sys.argv[2]
+train_caption = sys.argv[3]
+test_csv = sys.argv[4]
+model_path = sys.argv[5]
+predict_path = sys.argv[6]
+
+
 # Read audio file
-with open("data/train.data", "rb") as fp:
+with open(train_data, "rb") as fp:
     X = pickle.load(fp, encoding='latin1')
-with open("data/test.data", "rb") as fp:
+with open(test_data, "rb") as fp:
     X_test = pickle.load(fp, encoding='latin1')
 
 # Steps for normalizing mfcc values to z score
@@ -70,19 +72,19 @@ X2 = []
 X2_test = []
 data = []
 
-with codecs.open("data/train.caption", encoding='utf-8') as f:
+with codecs.open(train_caption, encoding='utf-8') as f:
     for line in f.readlines():
         X2.append(line)
         data.append(line.split())
 
-with codecs.open("data/test.csv", encoding='utf-8') as f:
+with codecs.open(test_csv, encoding='utf-8') as f:
     for line in f.readlines():
         line = line.split(',')
         X2_test.extend(line)
 
 # Tokenize Chinese words into unique ids
 tokenizer = Tokenizer()
-tokenizer.fit_on_texts(X2 + X2_test)
+tokenizer.fit_on_texts(X2)
 train_sequences = tokenizer.texts_to_sequences(X2)
 test_sequences = tokenizer.texts_to_sequences(X2_test)
 
@@ -95,14 +97,14 @@ X2_maxlen = max([len(sentence) for sentence in train_sequences])
 X2 = pad_sequences(train_sequences, maxlen=X2_maxlen)
 X2_test = pad_sequences(test_sequences, maxlen=X2_maxlen)
 
-model = load_model("modify_multimodel_permute_300.h5")
+model = load_model(model_path)
 
 # Predict the option with the value most closest to 1
 predict = model.predict([X1_test, X2_test])
 predict = predict.reshape(-1, 4)
 predict = np.argmax(predict, axis=1)
 
-with open("result.csv", 'w') as f:
+with open(predict_path, 'w') as f:
     f.write('id,answer\n')
     for i, v in  enumerate(predict):
         f.write('%d,%d\n' %(i+1, v))
