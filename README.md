@@ -41,6 +41,6 @@
   ```
   - Output:  
   ```
-    Write the prediction to the file (predict_path.csv) at the end by loading the pretrained model.  
+    Reproduce the prediction to the file (predict_path.csv) at the end by loading the pretrained model.  
   ```
   
