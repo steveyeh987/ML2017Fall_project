@@ -37,7 +37,7 @@
 - reproduce.py:  
   - Execution:  
   ```
-    python3 reproduce.py model.h5 predict_path  
+    python3 reproduce.py train.data test.data train.caption test.csv model.h5 predict_path  
   ```
   - Output:  
   ```
