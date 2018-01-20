@@ -7,13 +7,13 @@
   - reproduce.py: Kaggle reproduce implementation  
   
 # Requirements:  
-- Python 3  
-- gensim  
-- keras  
-- tensorflow  
-- scikit-learn  
-- pandas  
-- numpy  
+- Python 3.5  
+- gensim 3.1.0 
+- keras 2.0.8 
+- tensorflow 1.3.0 
+- scikit-learn 0.19.1 
+- pandas 0.20.3 
+- numpy 1.13.3 
   
 # Files:  
 > All required files should be named as follows and be in the same folder as scripts:  
