@@ -27,20 +27,20 @@
 - model.py:  
   - Execution:  
   ```
-    python3 model.py train.data test.data train.caption test.csv predict_path  
+    python3 model.py train.data test.data train.caption test.csv filename.csv  
   ```
   - Output:  
   ```
-    Generate a keras model file (model.h5) and write the prediction to the file (predict_path.csv) at the end.  
+    Generate a keras model file (model.h5) and write the prediction to the file (filename.csv) at the end.  
   ```
 	  
 - reproduce.py:  
   - Execution:  
   ```
-    python3 reproduce.py train.data test.data train.caption test.csv model.h5 predict_path  
+    python3 reproduce.py train.data test.data train.caption test.csv model.h5 filename.csv    
   ```
   - Output:  
   ```
-    Reproduce the prediction to the file (predict_path.csv) at the end by loading the pretrained model.  
+    Reproduce the prediction to the file (filename.csv) at the end by loading the pretrained model.  
   ```
   
