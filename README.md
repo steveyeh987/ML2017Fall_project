@@ -27,7 +27,7 @@
 - model.py:  
   - Execution:  
   ```
-    python3 model.py train.data test.data train.caption test.csv filename.csv
+    python3 model.py train.data test.data train.caption test.csv filename.csv
   ```
   - Output:  
   ```
